@@ -15,12 +15,13 @@ type SetBoardPropsType = {
 export const SetBoard: React.FC<SetBoardPropsType> = (props: SetBoardPropsType) => {
     
     const onChangeMaxValue = (e: ChangeEvent<HTMLInputElement>) => {
-        let maxValue: number = Number(e.currentTarget.value)
-        props.setMaximumValue(maxValue)
+        let maxCurrentValue: number = Number(e.currentTarget.value)
+        props.setMaximumValue(maxCurrentValue)
+
     }
     const onChangeStartValue = (e: ChangeEvent<HTMLInputElement>) => {
-        let startValue = Number(e.currentTarget.value)
-        props.setStartValue(startValue)
+        let startCurrentValue = Number(e.currentTarget.value)
+        props.setStartValue(startCurrentValue)
     }
 
     return (

@@ -10,12 +10,13 @@ export const App: React.FC = () => {
     const [maximumValue, setMaximumValue] = useState<number>(0)
     const [startValue, setStartValue] = useState<number>(0)
     const [value, setValue] = useState<number>(startValue)
+    const [text, setText] = useState(`enter value and press 'set'` )
 
     const setFunc = () => {
         setValue(startValue)
     }
     const incFunc = () => {
-        (value >= startValue && value <= maximumValue) && setValue(value+1)
+        (value >= startValue && value <= maximumValue) && setValue(value + 1)
     }
     const resFunc = () => {setValue(0)}
 
@@ -26,8 +27,20 @@ export const App: React.FC = () => {
             return true
         }
     }
-    const disabledIncButton = (value: number) => value && value === 5 ? true : false
-    const disabledResButton = (value: number) => !value ? true : false
+    const disabledIncButton = (value: number) => {
+        if (value && value < maximumValue && value >= startValue) {
+            return false
+        } else {
+            return true
+        }
+    }
+    const disabledResButton = (value: number) => {
+        if (!value) {
+            return true
+        } else {
+            return false
+        }
+    }
 
     return (
         <div className={s.project}>
