@@ -1,0 +1,25 @@
+.board {
+    border: 1px solid grey;
+    background-color: #efefef;
+    border-radius: 10px;
+    margin: 10px auto;
+    width: 210px;
+    height: 150px;
+}
+.value {
+    font-size: 60px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Courier New";
+}
+.maxInc {
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+    font-size: 70px;
+    font-family: "Courier New";
+}

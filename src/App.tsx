@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
+import s from './App.module.css'
+import './App.css'
+import {Button} from "./components/Button/Button"
+import {CountBoard} from "./components/CountBoard/CountBoard"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export const App: React.FC = () => {
+    const [value, setValue] = useState<number>(0)
+    const minValue: number = 0
+    const maxValue: number = 5
+    const incFunc = () => {
+        (value >= minValue && value < maxValue) && setValue(value+1)
+    }
+    const resFunc = () => {setValue(0)}
+
+    const disabledIncButton = (value: number) => value && value === 5 ? true : false
+    const disabledResButton = (value: number) => !value ? true : false
+
+    return (
+        <div className={s.counter}>
+            <CountBoard value={value} maxValue={maxValue}/>
+            <div className={s.buttons}>
+                <Button title={'inc'} buttonFunction={incFunc} value={value} disabledButton={disabledIncButton}/>
+                <Button title={'reset'} buttonFunction={resFunc} value={value} disabledButton={disabledResButton}/>
+            </div>
+
+        </div>
+    )
 }
-
-export default App;
