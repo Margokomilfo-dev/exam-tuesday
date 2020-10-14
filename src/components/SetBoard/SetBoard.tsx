@@ -11,15 +11,21 @@ type SetBoardPropsType = {
     setMaximumValue: (value: number) => void
     startValue: number
     setStartValue: (value: number) => void
+    activeMaxValue: boolean
+    setActiveMaxValue: (value: boolean) => void
+    activeMinValue: boolean
+    setActiveMinValue: (value: boolean) => void
 }
 export const SetBoard: React.FC<SetBoardPropsType> = (props: SetBoardPropsType) => {
     
     const onChangeMaxValue = (e: ChangeEvent<HTMLInputElement>) => {
+        props.setActiveMaxValue(true)
         let maxCurrentValue: number = Number(e.currentTarget.value)
         props.setMaximumValue(maxCurrentValue)
 
     }
     const onChangeStartValue = (e: ChangeEvent<HTMLInputElement>) => {
+        props.setActiveMinValue(true)
         let startCurrentValue = Number(e.currentTarget.value)
         props.setStartValue(startCurrentValue)
     }
@@ -28,12 +34,13 @@ export const SetBoard: React.FC<SetBoardPropsType> = (props: SetBoardPropsType) 
         <div className='counter'>
             <div className={s.board}>
                 <div className={s.inputBlock}>
-                    <span>max value: </span> <input className={`${s.inputBoard} ${s.maxValue}`}
-                                                    onChange={(e) => {
-                                                        onChangeMaxValue(e)}} type="number"/>
+                    <span>max value: </span> <input onFocus={() => {props.setActiveMaxValue(true)}}
+                                                    className={`${s.inputBoard} ${s.maxValue}`}
+                                                    onChange={(e) => {onChangeMaxValue(e)}} type="number"/>
                 </div>
                 <div className={s.inputBlock}>
-                    <span>start value:</span> <input className={`${s.inputBoard} ${s.startValue}`}
+                    <span>start value:</span> <input onFocus={() => {props.setActiveMaxValue(true)}}
+                                                     className={`${s.inputBoard} ${s.startValue}`}
                                                      onChange={(e)=> {onChangeStartValue(e)}} type="number"/>
                 </div>
             </div>

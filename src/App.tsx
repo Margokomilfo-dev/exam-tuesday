@@ -12,8 +12,16 @@ export const App: React.FC = () => {
     const [value, setValue] = useState<number>(startValue)
     const [text, setText] = useState(`enter value and press 'set'` )
 
+    //---
+    const [activeMaxValue, setActiveMaxValue] = useState<boolean>(false)
+    const [activeMinValue, setActiveMinValue] = useState<boolean>(false)
+    console.log(`activeMinValue: ${activeMinValue}`)
+    console.log(`activeMaxValue: ${activeMaxValue}`)
+
     const setFunc = () => {
         setValue(startValue)
+        setActiveMinValue(false)
+        setActiveMaxValue(false)
     }
     const incFunc = () => {
         (value >= startValue && value <= maximumValue) && setValue(value + 1)
@@ -48,9 +56,14 @@ export const App: React.FC = () => {
                        maximumValue={maximumValue}
                        setMaximumValue={setMaximumValue}
                        startValue={startValue}
-                       setStartValue={setStartValue}/>
+                       setStartValue={setStartValue}
+                       activeMaxValue={activeMaxValue}
+                       setActiveMaxValue={setActiveMaxValue}
+                       activeMinValue={activeMinValue}
+                       setActiveMinValue={setActiveMinValue}
+            />
             <div className='counter'>
-                <CountBoard value={value} maxValue={maximumValue}/>
+                <CountBoard value={value} maxValue={maximumValue} text={text} activeMaxValue={activeMaxValue} activeMinValue={activeMinValue}/>
                 <div className='buttons'>
                     <Button title={'inc'} buttonFunction={incFunc} value={value} disabledButton={disabledIncButton}/>
                     <Button title={'reset'} buttonFunction={resFunc} value={value} disabledButton={disabledResButton}/>
