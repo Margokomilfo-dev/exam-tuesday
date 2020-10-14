@@ -1,8 +1,7 @@
 import React, {ChangeEvent, useState} from 'react'
 import '../../App.css'
 import s from './SetBoard.module.css'
-import {Button} from "../Button/Button";
-import {rename} from "fs";
+import {Button} from "../Button/Button"
 
 type SetBoardPropsType = {
     value: number
@@ -38,7 +37,6 @@ export const SetBoard: React.FC<SetBoardPropsType> = (props: SetBoardPropsType) 
                 </div>
             </div>
             <div className='buttons'>
-
                 <Button title={'set'} buttonFunction={props.setFunc} value={props.value}
                         disabledButton={props.disabledSetButton}/>
             </div>

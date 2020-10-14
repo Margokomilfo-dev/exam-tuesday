@@ -8,21 +8,14 @@ import {SetBoard} from "./components/SetBoard/SetBoard"
 export const App: React.FC = () => {
 
     const [maximumValue, setMaximumValue] = useState<number>(0)
-    console.log(`maximumValue is: ${maximumValue}`)
     const [startValue, setStartValue] = useState<number>(0)
-    console.log(`startValue is: ${startValue}`)
-    const [ses, setSes] = useState<Array<number>>([])
-
-    //-------------------------------------------------------------------------
-    const [value, setValue] = useState<number>(0)
-    const minValue: number = 0
-    const maxValue: number = 5
+    const [value, setValue] = useState<number>(startValue)
 
     const setFunc = () => {
-
+        setValue(startValue)
     }
     const incFunc = () => {
-        (value >= minValue && value < maxValue) && setValue(value+1)
+        (value >= startValue && value <= maximumValue) && setValue(value+1)
     }
     const resFunc = () => {setValue(0)}
 
@@ -44,7 +37,7 @@ export const App: React.FC = () => {
                        startValue={startValue}
                        setStartValue={setStartValue}/>
             <div className='counter'>
-                <CountBoard value={value} maxValue={maxValue}/>
+                <CountBoard value={value} maxValue={maximumValue}/>
                 <div className='buttons'>
                     <Button title={'inc'} buttonFunction={incFunc} value={value} disabledButton={disabledIncButton}/>
                     <Button title={'reset'} buttonFunction={resFunc} value={value} disabledButton={disabledResButton}/>

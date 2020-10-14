@@ -8,6 +8,7 @@ type ButtonPropsType = {
   disabledButton: (value: number) => boolean
 }
 export const Button: React.FC<ButtonPropsType> = (props: ButtonPropsType) => {
+    debugger
   return (
       <div>
         <button onClick={props.buttonFunction} disabled={props.disabledButton(props.value)}
