@@ -8,7 +8,9 @@ import {SetBoard} from "./components/SetBoard/SetBoard"
 export const App: React.FC = () => {
 
     const [maximumValue, setMaximumValue] = useState<number>(0)
+    console.log(`maximumValue is: ${maximumValue}`)
     const [startValue, setStartValue] = useState<number>(0)
+    console.log(`startValue is: ${startValue}`)
     const [ses, setSes] = useState<Array<number>>([])
 
     //-------------------------------------------------------------------------
@@ -30,9 +32,11 @@ export const App: React.FC = () => {
 
     return (
         <div className={s.project}>
-            <SetBoard  value={value} setFunc={setFunc} disabledSetButton={disabledSetButton}/>
-
-
+            <SetBoard  value={value} setFunc={setFunc} disabledSetButton={disabledSetButton}
+                       maximumValue={maximumValue}
+                       setMaximumValue={setMaximumValue}
+                       startValue={startValue}
+                       setStartValue={setStartValue}/>
             <div className='counter'>
                 <CountBoard value={value} maxValue={maxValue}/>
                 <div className='buttons'>
