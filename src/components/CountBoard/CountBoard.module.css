@@ -23,3 +23,19 @@
     font-size: 70px;
     font-family: "Courier New";
 }
+.text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+}
+.errorText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    color: red;
+    font-weight: 600;
+}
