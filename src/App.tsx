@@ -3,25 +3,42 @@ import s from './App.module.css'
 import './App.css'
 import {Button} from "./components/Button/Button"
 import {CountBoard} from "./components/CountBoard/CountBoard"
+import {SetBoard} from "./components/SetBoard/SetBoard"
 
 export const App: React.FC = () => {
+
+    const [maximumValue, setMaximumValue] = useState<number>(0)
+    const [startValue, setStartValue] = useState<number>(0)
+    const [ses, setSes] = useState<Array<number>>([])
+
+    //-------------------------------------------------------------------------
     const [value, setValue] = useState<number>(0)
     const minValue: number = 0
     const maxValue: number = 5
+
+    const setFunc = () => {
+
+    }
     const incFunc = () => {
         (value >= minValue && value < maxValue) && setValue(value+1)
     }
     const resFunc = () => {setValue(0)}
 
+    const disabledSetButton = (value: number) => true
     const disabledIncButton = (value: number) => value && value === 5 ? true : false
     const disabledResButton = (value: number) => !value ? true : false
 
     return (
-        <div className={s.counter}>
-            <CountBoard value={value} maxValue={maxValue}/>
-            <div className={s.buttons}>
-                <Button title={'inc'} buttonFunction={incFunc} value={value} disabledButton={disabledIncButton}/>
-                <Button title={'reset'} buttonFunction={resFunc} value={value} disabledButton={disabledResButton}/>
+        <div className={s.project}>
+            <SetBoard  value={value} setFunc={setFunc} disabledSetButton={disabledSetButton}/>
+
+
+            <div className='counter'>
+                <CountBoard value={value} maxValue={maxValue}/>
+                <div className='buttons'>
+                    <Button title={'inc'} buttonFunction={incFunc} value={value} disabledButton={disabledIncButton}/>
+                    <Button title={'reset'} buttonFunction={resFunc} value={value} disabledButton={disabledResButton}/>
+                </div>
             </div>
 
         </div>

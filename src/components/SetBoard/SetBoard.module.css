@@ -1,0 +1,39 @@
+.board {
+    border: 1px solid grey;
+    background-color: #efefef;
+    border-radius: 10px;
+    margin: 10px auto;
+    width: 210px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.inputBlock {
+    margin: 5px;
+}
+.inputBlock span {
+    display: inline-block;
+    width: 80px;
+    color:#666666;
+    font-family:Arial;
+    font-size:15px;
+}
+.inputBoard {
+    width: 100px;
+    padding: 5px;
+    font-size: 12px;
+    border-width: 1px;
+    border-color: lightgrey;
+    background-color: #FFFFFF;
+    color: black;
+    border-radius: 7px;
+    box-shadow: 0px 0px 5px rgba(255, 164, 213, 0.7);
+    font-family: "Courier New";
+    text-align: center;
+
+}
+.inputBoard:focus {
+    outline:none;
+}

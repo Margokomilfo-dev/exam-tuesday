@@ -1,3 +1,11 @@
+.project {
+    display: flex;
+    justify-content: space-around;
+    border: 1px dotted grey;
+    width: 600px;
+    margin: 50px auto;
+}
+
 .counter {
     border: 1px solid grey;
     background-color: #fcdbe1;
@@ -5,24 +13,4 @@
     width: 230px;
     height: 230px;
     margin: 50px auto;
-}
-.board {
-    border: 1px solid grey;
-    background-color: #efefef;
-    border-radius: 10px;
-    margin: 10px auto;
-    width: 210px;
-    height: 150px;
-
-}
-.buttons {
-    border: 1px solid grey;
-    background-color: #efefef;
-    border-radius: 10px;
-    margin: 10px auto;
-    width: 210px;
-    height: 50px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
 }
