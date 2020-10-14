@@ -38,6 +38,7 @@ export const SetBoard: React.FC<SetBoardPropsType> = (props: SetBoardPropsType) 
                 </div>
             </div>
             <div className='buttons'>
+
                 <Button title={'set'} buttonFunction={props.setFunc} value={props.value}
                         disabledButton={props.disabledSetButton}/>
             </div>

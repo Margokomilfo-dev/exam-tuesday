@@ -26,7 +26,13 @@ export const App: React.FC = () => {
     }
     const resFunc = () => {setValue(0)}
 
-    const disabledSetButton = (value: number) => true
+    const disabledSetButton = (value: number) => {
+        if (maximumValue > startValue && maximumValue !== startValue && maximumValue > 0 && startValue > 0) {
+            return false
+        }else {
+            return true
+        }
+    }
     const disabledIncButton = (value: number) => value && value === 5 ? true : false
     const disabledResButton = (value: number) => !value ? true : false
 
