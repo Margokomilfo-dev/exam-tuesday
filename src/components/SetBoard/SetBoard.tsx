@@ -43,18 +43,17 @@ export const SetBoard: React.FC<SetBoardPropsType> = (props: SetBoardPropsType) 
                 <div className={s.inputBlock}>
                     <span>max value: </span>
                     <input onFocus={()=> {props.setActiveMaxValue(true)}}
-                        className={(props.text === 'Incorrect value!') ? `${s.inputBoard} ${s.inputBoardFire}` : `${s.inputBoard} `}
+                           className={(props.text === 'Incorrect value!') ? `${s.inputBoard} ${s.inputBoardFire}` : `${s.inputBoard} `}
                            onChange={(e) => {onChangeMaxValue(e)}} type="number"
                            value= {props.maximumValue}/>
-
                 </div>
                 <div
                     className={s.inputBlock}>
                     <span>start value:</span>
                     <input onFocus={()=> {props.setActiveMinValue(true)}}
-                        className={(props.text === 'Incorrect value!') ? `${s.inputBoard} ${s.inputBoardFire}` : `${s.inputBoard} `}
-                    onChange={(e) => {onChangeStartValue(e)}} type="number"
-                    value={props.startValue}/>
+                           className={(props.text === 'Incorrect value!') ? `${s.inputBoard} ${s.inputBoardFire}` : `${s.inputBoard} `}
+                           onChange={(e) => {onChangeStartValue(e)}} type="number"
+                           value={props.startValue}/>
                 </div>
             </div>
             <div className='buttons'>

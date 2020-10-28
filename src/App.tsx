@@ -36,25 +36,13 @@ export const App: React.FC = () => {
     }
 
     const disabledSetButton = (value: number) => {
-        if (maximumValue && startValue >= 0  && maximumValue > startValue && maximumValue !== startValue && maximumValue > 0 && startValue >= 0) {
-            return false
-        }else {
-            return true
-        }
+        return !(maximumValue && startValue >= 0 && maximumValue > startValue && maximumValue !== startValue && maximumValue > 0 && startValue >= 0);
     }
     const disabledIncButton = (value: number) => {
-        if (value >= 0  && value < maximumValue && value >= startValue && (!activeMaxValue && !activeMinValue)) {
-            return false
-        } else {
-            return true
-        }
+        return !(value >= 0 && value < maximumValue && value >= startValue && (!activeMaxValue && !activeMinValue));
     }
     const disabledResButton = (value: number) => {
-        if (value <= 0 ) {
-            return true
-        } else {
-            return false
-        }
+        return value <= 0;
     }
 
     return (
