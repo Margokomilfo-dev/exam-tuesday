@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/exam-tuesday/static/css/main.0f4087f6.chunk.css",
+    "main.js": "/exam-tuesday/static/js/main.c387c810.chunk.js",
+    "main.js.map": "/exam-tuesday/static/js/main.c387c810.chunk.js.map",
+    "runtime-main.js": "/exam-tuesday/static/js/runtime-main.52947114.js",
+    "runtime-main.js.map": "/exam-tuesday/static/js/runtime-main.52947114.js.map",
+    "static/js/2.187690c6.chunk.js": "/exam-tuesday/static/js/2.187690c6.chunk.js",
+    "static/js/2.187690c6.chunk.js.map": "/exam-tuesday/static/js/2.187690c6.chunk.js.map",
+    "index.html": "/exam-tuesday/index.html",
+    "precache-manifest.0ce6e741f6d9243824c52c225c1bee45.js": "/exam-tuesday/precache-manifest.0ce6e741f6d9243824c52c225c1bee45.js",
+    "service-worker.js": "/exam-tuesday/service-worker.js",
+    "static/css/main.0f4087f6.chunk.css.map": "/exam-tuesday/static/css/main.0f4087f6.chunk.css.map",
+    "static/js/2.187690c6.chunk.js.LICENSE.txt": "/exam-tuesday/static/js/2.187690c6.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.52947114.js",
+    "static/js/2.187690c6.chunk.js",
+    "static/css/main.0f4087f6.chunk.css",
+    "static/js/main.c387c810.chunk.js"
+  ]
+}
