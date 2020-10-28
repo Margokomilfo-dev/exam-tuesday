@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "fb1c2ded551c2424394941b4acab28dd",
+    "revision": "9d8736a8637a2a0e7de9368f6fb79e99",
     "url": "/exam-tuesday/index.html"
   },
   {
-    "revision": "870aa50c9973749b9752",
+    "revision": "e8bf3cbaefb22fd6156f",
     "url": "/exam-tuesday/static/css/main.0f4087f6.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/exam-tuesday/static/js/2.187690c6.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "870aa50c9973749b9752",
-    "url": "/exam-tuesday/static/js/main.c387c810.chunk.js"
+    "revision": "e8bf3cbaefb22fd6156f",
+    "url": "/exam-tuesday/static/js/main.7a64a04c.chunk.js"
   },
   {
     "revision": "6613614be367abf6bf75",
