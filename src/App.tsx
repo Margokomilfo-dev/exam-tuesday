@@ -17,8 +17,8 @@ export const App: React.FC = () => {
     const [startValue, setStartValue] = useState<number>(Number(getMinValue))
     const [value, setValue] = useState<number>(0)
     const [text, setText] = useState <TextType> (`enter value and press 'set'` )
-    const [activeMaxValue, setActiveMaxValue] = useState<boolean>(false)
-    const [activeMinValue, setActiveMinValue] = useState<boolean>(false)
+    const [activeMaxValue, setActiveMaxValue] = useState<boolean>(true)
+    const [activeMinValue, setActiveMinValue] = useState<boolean>(true)
 
     const setFunc = () => {
         setValue(startValue)
@@ -43,7 +43,7 @@ export const App: React.FC = () => {
         }
     }
     const disabledIncButton = (value: number) => {
-        if (value >= 0  && value < maximumValue && value >= startValue  ) {
+        if (value >= 0  && value < maximumValue && value >= startValue && (!activeMaxValue && !activeMinValue)) {
             return false
         } else {
             return true
