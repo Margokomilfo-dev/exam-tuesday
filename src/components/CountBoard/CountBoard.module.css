@@ -1,41 +1,48 @@
 .board {
-    border: 1px solid grey;
-    background-color: #efefef;
-    border-radius: 10px;
-    margin: 10px auto;
     width: 210px;
     height: 150px;
+    margin: 10px auto;
+
+    border: 1px solid grey;
+    border-radius: 10px;
+    background-color: #efefef;
 }
+
 .value {
+    font-family: 'Courier New';
     font-size: 60px;
-    height: 150px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    font-family: "Courier New";
+    justify-content: center;
+    height: 150px;
 }
+
 .maxInc {
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: red;
+    font-family: 'Courier New';
     font-size: 70px;
-    font-family: "Courier New";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 150px;
+    color: red;
 }
+
 .text {
     display: flex;
+    align-items: center;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     height: 150px;
 }
+
 .errorText {
+    font-weight: 600;
+
     display: flex;
+    align-items: center;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     height: 150px;
     color: red;
-    font-weight: 600;
 }
