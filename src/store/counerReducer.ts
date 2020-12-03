@@ -1,3 +1,4 @@
+import {useDispatch as _useDispatch} from "react-redux";
 
 export enum ACTIONS_TYPE{
     SETTING = 'SETTING',
@@ -10,7 +11,6 @@ export enum ACTIONS_TYPE{
     CHANGE_ACTIVE_STATUS_MIN = 'CHANGE_ACTIVE_STATUS_MIN',
     CHANGE_ACTIVE_STATUS_MAX = 'CHANGE_ACTIVE_STATUS_MAX',
 }
-
 
 let initState = {
     value: 0,
@@ -36,49 +36,58 @@ type ActionsType =
 export const counterReducer = (state: InitStateType = initState, action: ActionsType) => {
     switch (action.type) {
         case ACTIONS_TYPE.SETTING:
-            return {
-                ...state,
-                value: action.value,
-                activeMinValue: false,
-                activeMaxValue: false,
-            }
+            let copyState = {...state}
+            localStorage.setItem('max', copyState.maximumValue.toString());
+            localStorage.setItem('min', copyState.startValue.toString());
+            copyState.value = action.value
+            copyState.activeMinValue = false
+            copyState.activeMaxValue= false
+            return copyState
+
         case ACTIONS_TYPE.INCREMENTAL:
             return {
                 ...state,
                 value: action.value + 1,
             }
+
         case ACTIONS_TYPE.RESET:
             return {
                 ...state,
                 value: 0,
             }
+
         case ACTIONS_TYPE.CHANGE_START_VALUE:
             return {
                 ...state,
                 startValue: action.value
             }
+
         case ACTIONS_TYPE.CHANGE_START_VALUE_WITH_STATUS:
             return {
                 ...state,
                 activeMinValue: action.status,
                 startValue: action.value,
             }
+
         case ACTIONS_TYPE.CHANGE_MAX_VALUE:
             return {
                 ...state,
                 maximumValue: action.value
             }
+
         case ACTIONS_TYPE.CHANGE_MAX_VALUE_WITH_STATUS:
             return {
                 ...state,
                 activeMaxValue: action.status,
                 maximumValue: action.value
             }
+
         case ACTIONS_TYPE.CHANGE_ACTIVE_STATUS_MIN:
             return {
                 ...state,
                 activeMinValue: action.status,
             }
+
          case ACTIONS_TYPE.CHANGE_ACTIVE_STATUS_MAX:
             return {
                 ...state,
@@ -94,10 +103,15 @@ export const actionsCreators = {
     SettingAC: (value: number) => ({type: ACTIONS_TYPE.SETTING, value} as const),
     IncrementalAC: (value: number) => ({type: ACTIONS_TYPE.INCREMENTAL, value} as const),
     ResetAC: () => ({type: ACTIONS_TYPE.RESET} as const),
-    ChangeMaxValueWithStatus: (value: number, status: boolean) => ({type: ACTIONS_TYPE.CHANGE_MAX_VALUE_WITH_STATUS, value, status } as const),
-    ChangeStartValueWithStatus: (value: number, status: boolean) => ({type: ACTIONS_TYPE.CHANGE_START_VALUE_WITH_STATUS, value, status } as const),
     ChangeMaxValue: (value: number) => ({type: ACTIONS_TYPE.CHANGE_MAX_VALUE, value } as const),
+    ChangeMaxValueWithStatus: (value: number, status: boolean) => ({type: ACTIONS_TYPE.CHANGE_MAX_VALUE_WITH_STATUS, value, status } as const),
     ChangeStartValue: (value: number) => ({type: ACTIONS_TYPE.CHANGE_START_VALUE, value } as const),
+    ChangeStartValueWithStatus: (value: number, status: boolean) => ({type: ACTIONS_TYPE.CHANGE_START_VALUE_WITH_STATUS, value, status } as const),
     ChangeActiveStatusMin: (status: boolean) => ({type: ACTIONS_TYPE.CHANGE_ACTIVE_STATUS_MIN, status} as const),
     ChangeActiveStatusMax: (status: boolean) => ({type: ACTIONS_TYPE.CHANGE_ACTIVE_STATUS_MAX, status} as const),
+}
+
+export function useDispatch() {
+    const dispatch = _useDispatch()
+    return (ac: ActionsType)=> dispatch(ac)
 }

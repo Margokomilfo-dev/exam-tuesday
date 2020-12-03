@@ -3,28 +3,28 @@ import '../../App.css'
 import s from './SetBoard.module.css'
 import {Button} from "../Button/Button"
 import {TextType} from "../../App"
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {actionsCreators} from "../../store/counerReducer";
+import {selectCounter} from "../../store/selectors";
 
 type SetBoardPropsType = {
-    value: number
-    setFunc: () => void
     disabledSetButton: (value: number) => boolean
-    maximumValue: number
-    startValue: number
-    activeMaxValue: boolean
-    activeMinValue: boolean
     text: string
     setText: (text: TextType) => void
 }
 
 export const SetBoard: React.FC<SetBoardPropsType> = (props: SetBoardPropsType) => {
-    (props.startValue === 0 && props.maximumValue > 0) || (props.maximumValue > 0 && props.maximumValue > props.startValue && props.startValue >= 0)
+
+    let dispatch = useDispatch()
+    const {startValue, maximumValue} = useSelector(selectCounter);
+
+    (startValue === 0 && maximumValue > 0) || (maximumValue > 0 && maximumValue > startValue && startValue >= 0)
         ? props.setText(`enter value and press 'set'`)
         : props.setText('Incorrect value!')
 
-    let dispatch = useDispatch()
-
+    const setFunc = () => {
+        dispatch(actionsCreators.SettingAC(startValue))
+    }
     const onChangeMaxValue = (e: ChangeEvent<HTMLInputElement>) => {
         dispatch(actionsCreators.ChangeMaxValueWithStatus((Number(e.currentTarget.value)), true))
     }
@@ -40,7 +40,7 @@ export const SetBoard: React.FC<SetBoardPropsType> = (props: SetBoardPropsType) 
                     <input onFocus={()=> {dispatch(actionsCreators.ChangeActiveStatusMax(true))}}
                            className={(props.text === 'Incorrect value!') ? `${s.inputBoard} ${s.inputBoardFire}` : `${s.inputBoard} `}
                            onChange={(e) => {onChangeMaxValue(e)}} type="number"
-                           value= {props.maximumValue}/>
+                           value= {maximumValue}/>
                 </div>
                 <div
                     className={s.inputBlock}>
@@ -48,11 +48,12 @@ export const SetBoard: React.FC<SetBoardPropsType> = (props: SetBoardPropsType) 
                     <input onFocus={()=> {dispatch(actionsCreators.ChangeActiveStatusMin(true))}}
                            className={(props.text === 'Incorrect value!') ? `${s.inputBoard} ${s.inputBoardFire}` : `${s.inputBoard} `}
                            onChange={(e) => {onChangeStartValue(e)}} type="number"
-                           value={props.startValue}/>
+                           value={startValue}/>
                 </div>
             </div>
             <div className='buttons'>
-                <Button title={'set'} buttonFunction={props.setFunc} value={props.value}
+                <Button title={'set'}
+                        buttonFunction={setFunc}
                         disabledButton={props.disabledSetButton} />
             </div>
         </div>

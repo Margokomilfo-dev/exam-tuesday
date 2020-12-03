@@ -12,21 +12,18 @@ beforeEach(()=> {
 })
 test('Increment of number', ()=>{
     let a:number = 2
-
     let newState = counterReducer(initState, actionsCreators.IncrementalAC(a))
 
     expect(newState.value).toBe(3)
 })
 
 test('Reset of number', ()=>{
-
     let newState = counterReducer(initState, actionsCreators.ResetAC())
 
     expect(newState.value).toBe(0)
 })
 
 test('Setting new parameters', ()=>{
-
     let newValue = 2
     let newState = counterReducer(initState, actionsCreators.SettingAC(newValue))
 
@@ -34,8 +31,8 @@ test('Setting new parameters', ()=>{
     expect(newState.activeMinValue).toBe(false)
     expect(newState.activeMaxValue).toBe(false)
 })
-test('Change min value', ()=>{
 
+test('Change min value', ()=>{
     let newValue = '4'
     let newState = counterReducer(initState, actionsCreators.ChangeStartValue(+newValue))
 
