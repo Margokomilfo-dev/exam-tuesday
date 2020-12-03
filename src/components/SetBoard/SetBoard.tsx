@@ -7,7 +7,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {actionsCreators} from "../../store/counerReducer";
 import {selectCounter} from "../../store/selectors";
 
-type SetBoardPropsType = {
+export type SetBoardPropsType = {
     disabledSetButton: (value: number) => boolean
     text: string
     setText: (text: TextType) => void

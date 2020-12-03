@@ -11,8 +11,9 @@ import {actionsCreators, useDispatch} from "./store/counerReducer";
 export type TextType = `enter value and press 'set'` | `Incorrect value!`
 
 type GetValueType = string | null
-let getMinValue: GetValueType = localStorage.getItem('min')
+let getMinValue: GetValueType= localStorage.getItem('min')
 let getMaxValue: GetValueType = localStorage.getItem('max')
+
 
 export const App: React.FC = () => {
 

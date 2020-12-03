@@ -17,7 +17,7 @@ let initState = {
     activeMinValue: true,
     activeMaxValue: true,
     startValue:  0,
-    maximumValue: 0,
+    maximumValue: 1,
 }
 
 export type InitStateType = typeof initState

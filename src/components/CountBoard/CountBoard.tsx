@@ -4,7 +4,7 @@ import { TextType } from '../../App'
 import {useSelector} from "react-redux";
 import {selectCounter} from "../../store/selectors";
 
-type CountBoardPropsType = {
+export type CountBoardPropsType = {
     text: string
     setText: (text: TextType) => void
 }

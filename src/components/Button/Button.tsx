@@ -3,7 +3,7 @@ import s from './Button.module.css'
 import {useSelector} from "react-redux";
 import {selectCounter} from "../../store/selectors";
 
-type ButtonPropsType = {
+export type ButtonPropsType = {
     title: string
     buttonFunction: () => void
     disabledButton: (value: number) => boolean
