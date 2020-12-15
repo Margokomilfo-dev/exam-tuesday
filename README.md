@@ -1,44 +1,31 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#Counter with 2 desks
 
-## Available Scripts
+Link to gh-pages: https://margokomilfo-dev.github.io/exam-tuesday/
 
-In the project directory, you can run:
+What I used in my project:
+- React/Redux
+- Hooks 
+- Jest
+- LocalStorage
 
-### `yarn start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+ 
+![alt text](src/screenshots/counter1.png)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Pic 1 - Start - read start values from local storage (this: 9, 4, in your case will be:  1, 0)
+buttons INC(increment) <br/> and RESET are disabled till you press SET with correct values
 
-### `yarn test`
+![alt text](src/screenshots/counter2.png)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Pic 2 - Result work of button INC (increment)  with correct values (from 4 to 9). When counter is end 
+(number 9) <br/> - the button INC is getting disabled
 
-### `yarn build`
+![alt text](src/screenshots/counter3.png)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Pic 3 - After press Reset button - INC and RESET are getting disabled and right board has number '0'.
+Now you <br/> can use only left board.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+![alt text](src/screenshots/counter4.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Pic 4 - Setting values are correct if start value less max value. 
+Values can't be less 0 and the same.
